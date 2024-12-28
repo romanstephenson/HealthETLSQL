@@ -4,6 +4,8 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+DROP TABLE IF EXISTS [dbo].[fact_medication_request]; 
+GO 
 CREATE TABLE [dbo].[fact_medication_request](
 	[ID] [int] IDENTITY(100,1) NOT NULL,
 	[medicationRequestID] [nvarchar](100) NULL,

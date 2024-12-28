@@ -4,6 +4,8 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+DROP TABLE IF EXISTS [dbo].[JSONLogs]; 
+GO 
 CREATE TABLE [dbo].[JSONLogs](
 	[_id] [bigint] IDENTITY(1,1) NOT NULL,
 	[JSONDOCUMENT] [nvarchar](max) NULL,
@@ -20,4 +22,6 @@ GO
 ALTER TABLE [dbo].[JSONLogs]  WITH CHECK ADD  CONSTRAINT [JSONDOCUMENT record should be formatted as JSON] CHECK  ((isjson([JSONDOCUMENT])=(1)))
 GO
 ALTER TABLE [dbo].[JSONLogs] CHECK CONSTRAINT [JSONDOCUMENT record should be formatted as JSON]
+GO
+ALTER TABLE [dbo].[JSONLogs] ADD  CONSTRAINT [DF_jsonlogs_created_dt]  DEFAULT (getdate()) FOR [IMPORTDATE]
 GO

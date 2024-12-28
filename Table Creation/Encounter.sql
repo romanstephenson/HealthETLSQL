@@ -4,16 +4,18 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+DROP TABLE IF EXISTS [dbo].[fact_encounters]; 
+GO  
 CREATE TABLE [dbo].[fact_encounters](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[encounter_ID] [nvarchar](50) NOT NULL,
+	[encounter_ID] [nvarchar](100) NOT NULL,
 	[start] [datetime] NULL,
 	[end] [datetime] NULL,
-	[patientID] [nvarchar](50) NULL,
-	[organizationID] [nvarchar](50) NULL,
-	[practitionerID] [nvarchar](50) NULL,
-	[encounter_class] [varchar](20) NULL,
-	[encounter_code] [varchar](20) NULL,
+	[patientID] [nvarchar](100) NULL,
+	[organizationID] [nvarchar](100) NULL,
+	[practitionerID] [nvarchar](100) NULL,
+	[encounter_class] [varchar](100) NULL,
+	[encounter_code] [varchar](100) NULL,
 	[encounter_description] [varchar](100) NULL,
 	[encounterReasonName] [varchar](500) NULL,
 	[encounterReasonCode] [varchar](500) NULL,

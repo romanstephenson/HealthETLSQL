@@ -4,12 +4,14 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+DROP TABLE IF EXISTS [dbo].[import_error_logs]; 
+GO  
 CREATE TABLE [dbo].[import_error_logs](
 	[_ID] [int] IDENTITY(1,1) NOT NULL,
 	[FILENAME] [nvarchar](250) NULL,
 	[ERRORNUMBER] [int] NULL,
 	[ERRORLINE] [int] NULL,
-	[ERRORMESSAGE] [nvarchar](1000) NULL,
+	[ERRORMESSAGE] [nvarchar](MAX) NULL,
 	[IMPORTDATETIME] [datetime] NULL
 ) ON [PRIMARY]
 GO
