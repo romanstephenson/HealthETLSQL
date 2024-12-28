@@ -4,6 +4,8 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+DROP TABLE IF EXISTS [dbo].[fact_claim]; 
+GO
 CREATE TABLE [dbo].[fact_claim](
 	[Id] [int] IDENTITY(10,1) NOT NULL,
 	[claimId] [nvarchar](100) NOT NULL,
@@ -23,7 +25,8 @@ CREATE TABLE [dbo].[fact_claim](
 	[claimCode] [varchar](100) NULL,
 	[encounterId] [nvarchar](100) NULL,
 	[claimTotal] [money] NULL,
-	[claimCurrency] [varchar](10) NULL
+	[claimCurrency] [varchar](10) NULL,
+	[created_dt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[fact_claim] ADD PRIMARY KEY CLUSTERED 
@@ -42,4 +45,6 @@ CREATE NONCLUSTERED COLUMNSTORE INDEX [CSIndex_fact_claim_1] ON [dbo].[fact_clai
 (
 	[claimPatientId]
 )WITH (DROP_EXISTING = OFF, COMPRESSION_DELAY = 0) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[fact_claim] ADD  CONSTRAINT [DF_dim_claim_created_dt]  DEFAULT (getdate()) FOR [created_dt]
 GO

@@ -4,16 +4,18 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+DROP TABLE IF EXISTS [dbo].[dim_organization]; 
+GO  
 CREATE TABLE [dbo].[dim_organization](
 	[ID] [varchar](100) NOT NULL,
-	[name] [varchar](100) NULL,
-	[address] [varchar](100) NULL,
-	[city] [varchar](50) NULL,
-	[state] [varchar](50) NULL,
+	[name] [varchar](200) NULL,
+	[address] [varchar](200) NULL,
+	[city] [varchar](200) NULL,
+	[state] [varchar](200) NULL,
 	[zip] [varchar](50) NULL,
-	[phone] [varchar](30) NULL,
+	[phone] [varchar](100) NULL,
 	[type] [nvarchar](100) NULL,
-	[created_dt] [datetime] NULL
+	[created_dt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
