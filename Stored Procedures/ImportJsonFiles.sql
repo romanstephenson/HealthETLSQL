@@ -5,27 +5,22 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-
-
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
 
-CREATE   PROCEDURE [dbo].[IMPORT_JSON_FILES] 
+CREATE OR ALTER PROCEDURE [dbo].[IMPORT_JSON_FILES] 
 	
 	@FullFilePathName NVARCHAR(max),
-	@FileNameOnly NVARCHAR(250)
+	@FileNameOnly NVARCHAR(500)
 	
 AS
 BEGIN
 	SET NOCOUNT ON;
 
     DECLARE @sqlUpdate varchar(max)
-
-	-- SET @FullFilePathName = 'C:\Users\Rochee Boo\Downloads\fhir_stu3\Alesha810_Marks830_1e0a8bd3-3b82-4f17-b1d6-19043aa0db6b.json';
-	
 
 	SET @FullFilePathName = REPLACE(@FullFilePathName, '''', '''''');
 	SET @FileNameOnly = REPLACE(@FileNameOnly, '''', '''''');
@@ -49,13 +44,13 @@ BEGIN
 			END TRY
 
 			BEGIN CATCH
-				/*
+				
 				INSERT INTO dbo.import_error_logs([FILENAME], ERRORNUMBER, ERRORLINE,ERRORMESSAGE,IMPORTDATETIME)
 				SELECT @FullFilePathName
 					, ERROR_NUMBER()
 					, ERROR_LINE()
 					,  ERROR_MESSAGE()
-					, GETDATE() */
+					, GETDATE() 
 
 				RETURN 2
 			END CATCH

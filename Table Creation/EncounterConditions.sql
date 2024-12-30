@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[fact_encounter_conditions](
 	[condition_code] [varchar](50) NOT NULL,
 	[start] [date] NULL,
 	[end] [date] NULL,
-	[created_dt] [datetime] NOT NULL
+	[created_dt] [datetime] NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON

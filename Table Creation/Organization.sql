@@ -8,14 +8,17 @@ DROP TABLE IF EXISTS [dbo].[dim_organization];
 GO  
 CREATE TABLE [dbo].[dim_organization](
 	[ID] [varchar](100) NOT NULL,
-	[name] [varchar](200) NULL,
+	[name] [varchar](500) NULL,
 	[address] [varchar](200) NULL,
 	[city] [varchar](200) NULL,
 	[state] [varchar](200) NULL,
-	[zip] [varchar](50) NULL,
+	[zip] [varchar](100) NULL,
+	[lat] [float] NULL,
+	[lon] [float] NULL,
 	[phone] [varchar](100) NULL,
-	[type] [nvarchar](100) NULL,
-	[created_dt] [datetime] NOT NULL
+	[revenue] [float] NULL,
+	[utilization] [int] NULL,
+	[created_dt] [datetime] NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON

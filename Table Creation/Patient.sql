@@ -24,7 +24,7 @@ CREATE TABLE [dbo].[dim_patient](
 	[city] [varchar](50) NULL,
 	[state] [varchar](50) NULL,
 	[zip] [varchar](50) NULL,
-	[created_dt] [datetime] NOT NULL
+	[created_dt] [datetime] NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON

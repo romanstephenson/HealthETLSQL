@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[fact_encounters](
 	[encounter_description] [varchar](100) NULL,
 	[encounterReasonName] [varchar](500) NULL,
 	[encounterReasonCode] [varchar](500) NULL,
-	[CREATE_DT] [datetime] NOT NULL
+	[CREATE_DT] [datetime] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[fact_encounters] ADD  CONSTRAINT [PK_fact_encounters] PRIMARY KEY CLUSTERED 
